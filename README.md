@@ -16,3 +16,14 @@ Custom Component for integrating the ESP32-based Smoker directly into Home Assis
 - Control Set Temperature and Timer
 - Start/Stop Programs
 - Control Fan, Flap, Smoke, Steam
+
+## HACS Installation Fix
+
+If you see an error about **Version**, you must create a **Release** on GitHub.
+
+1. Push your code to GitHub.
+2. Go to your repository > **Releases** > **Draft a new release**.
+3. Tag version: `v1.0.0`.
+4. Release title: `v1.0.0`.
+5. Publish release.
+6. Now try downloading in HACS again.
