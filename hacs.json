@@ -1,0 +1,9 @@
+{
+  "name": "Räucherofen (Smoker)",
+  "content_in_root": false,
+  "zip_release": false,
+  "filename": "raeucherofen.zip",
+  "render_readme": true,
+  "country": "DE",
+  "homeassistant": "2023.1.0"
+}
