@@ -1,14 +1,14 @@
 {
   "domain": "raeucherofen",
-  "name": "Räucherofen (Smoker)",
+  "name": "Räucherofen Reimer42",
   "config_flow": true,
-  "documentation": "https://github.com/alex/raeucherofen-ha-add-in",
+  "documentation": "https://github.com/Alex-Reimer/raeucherofen-ha-add-in",
   "requirements": [],
   "ssdp": [],
   "zeroconf": [],
   "homekit": {},
   "dependencies": [],
-  "codeowners": ["@alex"],
+  "codeowners": ["@Alex-Reimer"],
   "iot_class": "local_polling",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

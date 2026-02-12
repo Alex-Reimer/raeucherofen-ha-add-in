@@ -29,6 +29,7 @@ async def async_setup_entry(
         RaeucherofenBinarySensor(coordinator, "lightOn", "Light", BinarySensorDeviceClass.LIGHT),
         RaeucherofenBinarySensor(coordinator, "smokePhaseOn", "Smoke Phase", BinarySensorDeviceClass.RUNNING),
         RaeucherofenBinarySensor(coordinator, "waterPhaseOn", "Water Phase", BinarySensorDeviceClass.RUNNING),
+        RaeucherofenBinarySensor(coordinator, "cooldown", "Cooldown Active", BinarySensorDeviceClass.RUNNING),
         RaeucherofenBinarySensor(coordinator, "killSeq", "Kill Sequence Active", BinarySensorDeviceClass.PROBLEM),
         RaeucherofenBinarySensor(coordinator, "powerCut", "Power Cut Latched", BinarySensorDeviceClass.PROBLEM),
     ]

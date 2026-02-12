@@ -32,11 +32,33 @@ async def async_setup_entry(
         RaeucherofenTimeSensor(coordinator, "remaining_s", "Time Remaining"),
         RaeucherofenTimeSensor(coordinator, "smokePhaseRemaining_s", "Smoke Phase Remaining"),
         RaeucherofenTimeSensor(coordinator, "waterPhaseRemaining_s", "Water Phase Remaining"),
+        RaeucherofenTimeSensor(coordinator, "killLeft_s", "Kill Sequence Timer"),
         RaeucherofenTextSensor(coordinator, "alarm", "Status Message"),
         RaeucherofenTextSensor(coordinator, "sensor", "Active Sensor"),
+        RaeucherofenStepSensor(coordinator, "krakauerStep", "Krakauer Step"),
+        RaeucherofenStepSensor(coordinator, "indStep", "Individual Step"),
+        RaeucherofenStepSensor(coordinator, "indTotal", "Individual Total Steps"),
+        RaeucherofenTempSensor(coordinator, "maxTemp", "Max Allowed Temperature"),
     ]
     
     async_add_entities(entities)
+
+class RaeucherofenStepSensor(CoordinatorEntity, SensorEntity):
+    """Representation of a Step Counter Sensor."""
+
+    _attr_state_class = SensorStateClass.MEASUREMENT
+
+    def __init__(self, coordinator: RaeucherofenCoordinator, key: str, name: str) -> None:
+        """Initialize the sensor."""
+        super().__init__(coordinator)
+        self._key = key
+        self._attr_name = name
+        self._attr_unique_id = f"{coordinator.entry.entry_id}_{key}"
+
+    @property
+    def native_value(self):
+        """Return the state of the sensor."""
+        return self.coordinator.data.get(self._key)
 
 class RaeucherofenTempSensor(CoordinatorEntity, SensorEntity):
     """Representation of a Temperature Sensor."""
