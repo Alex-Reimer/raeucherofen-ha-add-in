@@ -1,0 +1,14 @@
+{
+  "domain": "raeucherofen",
+  "name": "Räucherofen (Smoker)",
+  "config_flow": true,
+  "documentation": "https://github.com/alex/raeucherofen-ha-add-in",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": ["@alex"],
+  "iot_class": "local_polling",
+  "version": "1.0.0"
+}
