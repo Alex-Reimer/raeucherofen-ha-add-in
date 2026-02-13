@@ -60,6 +60,35 @@ class RaeucherofenStepSensor(CoordinatorEntity, SensorEntity):
         """Return the state of the sensor."""
         return self.coordinator.data.get(self._key)
 
+
+
+def format_duration(seconds):
+    """Format seconds into a human readable string."""
+    if seconds is None:
+        return None
+    try:
+        seconds = int(float(seconds))
+    except (ValueError, TypeError):
+        return None
+
+    if seconds < 60:
+        return f"{seconds} Sek"
+    
+    minutes = seconds // 60
+    remaining_seconds = seconds % 60
+    
+    if minutes < 60:
+        if remaining_seconds > 0:
+            return f"{minutes} Min {remaining_seconds} Sek"
+        return f"{minutes} Min"
+        
+    hours = minutes // 60
+    remaining_minutes = minutes % 60
+    
+    if remaining_minutes > 0:
+        return f"{hours} Std {remaining_minutes} Min"
+    return f"{hours} Std"
+
 class RaeucherofenTempSensor(CoordinatorEntity, SensorEntity):
     """Representation of a Temperature Sensor."""
 
@@ -81,15 +110,15 @@ class RaeucherofenTempSensor(CoordinatorEntity, SensorEntity):
         if val == "--.-":
             return None
         try:
-            return float(val)
+            return round(float(val), 1)
         except (ValueError, TypeError):
             return None
 
 class RaeucherofenTimeSensor(CoordinatorEntity, SensorEntity):
     """Representation of a Time Sensor."""
 
-    _attr_device_class = SensorDeviceClass.DURATION
-    _attr_native_unit_of_measurement = UnitOfTime.SECONDS
+    # Time sensors now return a string, so no device class or unit of measurement
+    _attr_icon = "mdi:timer"
 
     def __init__(self, coordinator: RaeucherofenCoordinator, key: str, name: str) -> None:
         """Initialize the sensor."""
@@ -101,7 +130,9 @@ class RaeucherofenTimeSensor(CoordinatorEntity, SensorEntity):
     @property
     def native_value(self):
         """Return the state of the sensor."""
-        return self.coordinator.data.get(self._key)
+        val = self.coordinator.data.get(self._key)
+        return format_duration(val)
+
 
 class RaeucherofenTextSensor(CoordinatorEntity, SensorEntity):
     """Representation of a Text Sensor."""
