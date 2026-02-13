@@ -22,16 +22,16 @@ async def async_setup_entry(
     coordinator = hass.data[DOMAIN][entry.entry_id]
     
     entities = [
-        RaeucherofenBinarySensor(coordinator, "running", "Running", BinarySensorDeviceClass.RUNNING),
-        RaeucherofenBinarySensor(coordinator, "heaterOn", "Heater", BinarySensorDeviceClass.HEAT),
-        RaeucherofenBinarySensor(coordinator, "dryFanEnabled", "Dry Fan", BinarySensorDeviceClass.FAN), # Logical state
-        RaeucherofenBinarySensor(coordinator, "flapOpen", "Flap Open", BinarySensorDeviceClass.WINDOW),
-        RaeucherofenBinarySensor(coordinator, "lightOn", "Light", BinarySensorDeviceClass.LIGHT),
-        RaeucherofenBinarySensor(coordinator, "smokePhaseOn", "Smoke Phase", BinarySensorDeviceClass.RUNNING),
-        RaeucherofenBinarySensor(coordinator, "waterPhaseOn", "Water Phase", BinarySensorDeviceClass.RUNNING),
-        RaeucherofenBinarySensor(coordinator, "cooldown", "Cooldown Active", BinarySensorDeviceClass.RUNNING),
-        RaeucherofenBinarySensor(coordinator, "killSeq", "Kill Sequence Active", BinarySensorDeviceClass.PROBLEM),
-        RaeucherofenBinarySensor(coordinator, "powerCut", "Power Cut Latched", BinarySensorDeviceClass.PROBLEM),
+        RaeucherofenBinarySensor(coordinator, "running", "Betrieb", BinarySensorDeviceClass.RUNNING),
+        RaeucherofenBinarySensor(coordinator, "heaterOn", "Heizung", BinarySensorDeviceClass.HEAT),
+        RaeucherofenBinarySensor(coordinator, "dryFanEnabled", "Lüfter (Aktiv)", BinarySensorDeviceClass.FAN), # Logical state
+        RaeucherofenBinarySensor(coordinator, "flapOpen", "Klappe (Offen)", BinarySensorDeviceClass.WINDOW),
+        RaeucherofenBinarySensor(coordinator, "lightOn", "Licht", BinarySensorDeviceClass.LIGHT),
+        RaeucherofenBinarySensor(coordinator, "smokePhaseOn", "Rauchphase", BinarySensorDeviceClass.RUNNING),
+        RaeucherofenBinarySensor(coordinator, "waterPhaseOn", "Wasserphase", BinarySensorDeviceClass.RUNNING),
+        RaeucherofenBinarySensor(coordinator, "cooldown", "Abkühlen Aktiv", BinarySensorDeviceClass.RUNNING),
+        RaeucherofenBinarySensor(coordinator, "killSeq", "Notabschaltung Aktiv", BinarySensorDeviceClass.PROBLEM),
+        RaeucherofenBinarySensor(coordinator, "powerCut", "Stromunterbrechung", BinarySensorDeviceClass.PROBLEM),
     ]
     
     async_add_entities(entities)

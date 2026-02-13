@@ -21,7 +21,7 @@ async def async_setup_entry(
     async_add_entities([RaeucherofenSensorSelect(coordinator)])
 
 class RaeucherofenProgramSelect(CoordinatorEntity, SelectEntity):
-    _attr_name = "Program"
+    _attr_name = "Programm"
     _attr_options = list(PROGRAM_MAPPING.values())
 
     def __init__(self, coordinator: RaeucherofenCoordinator) -> None:
@@ -39,7 +39,7 @@ class RaeucherofenProgramSelect(CoordinatorEntity, SelectEntity):
              await self.coordinator.async_send_command("program", {"p": val})
 
 class RaeucherofenSensorSelect(CoordinatorEntity, SelectEntity):
-    _attr_name = "Control Sensor"
+    _attr_name = "Regelsensor"
     _attr_options = ["oben", "mitte", "unten"]
 
     def __init__(self, coordinator: RaeucherofenCoordinator) -> None:

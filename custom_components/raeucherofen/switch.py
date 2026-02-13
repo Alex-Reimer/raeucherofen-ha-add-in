@@ -19,9 +19,9 @@ async def async_setup_entry(
     coordinator = hass.data[DOMAIN][entry.entry_id]
     
     entities = [
-        RaeucherofenSwitch(coordinator, "dryFanEnabled", "Dry Fan Override", "dryfan", "en"),
-        RaeucherofenSwitch(coordinator, "flapOpen", "Flap Override", "flap", "open"),
-        RaeucherofenSwitch(coordinator, "lightOn", "Light", "light", "en"),
+        RaeucherofenSwitch(coordinator, "dryFanEnabled", "Lüfter Manuell", "dryfan", "en"),
+        RaeucherofenSwitch(coordinator, "flapOpen", "Klappe Manuell", "flap", "open"),
+        RaeucherofenSwitch(coordinator, "lightOn", "Licht", "light", "en"),
         RaeucherofenMeatEnableSwitch(coordinator),
         RaeucherofenSmokeContinuousSwitch(coordinator),
     ]
@@ -50,7 +50,7 @@ class RaeucherofenSwitch(CoordinatorEntity, SwitchEntity):
         await self.coordinator.async_send_command(self._api_cmd, {self._api_param: 0})
 
 class RaeucherofenMeatEnableSwitch(CoordinatorEntity, SwitchEntity):
-    _attr_name = "Meat Sensor Control Enabled"
+    _attr_name = "Kerntemperatur-Steuerung"
 
     def __init__(self, coordinator: RaeucherofenCoordinator) -> None:
         super().__init__(coordinator)
@@ -67,7 +67,7 @@ class RaeucherofenMeatEnableSwitch(CoordinatorEntity, SwitchEntity):
         await self.coordinator.async_send_command("meat", {"en": 0})
 
 class RaeucherofenSmokeContinuousSwitch(CoordinatorEntity, SwitchEntity):
-    _attr_name = "Smoke Continuous"
+    _attr_name = "Rauch Dauerhaft"
 
     def __init__(self, coordinator: RaeucherofenCoordinator) -> None:
         super().__init__(coordinator)

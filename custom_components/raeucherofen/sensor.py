@@ -24,21 +24,21 @@ async def async_setup_entry(
     coordinator = hass.data[DOMAIN][entry.entry_id]
     
     entities = [
-        RaeucherofenTempSensor(coordinator, "t_top", "Top Temperature"),
-        RaeucherofenTempSensor(coordinator, "t_mid", "Middle Temperature"),
-        RaeucherofenTempSensor(coordinator, "t_bot", "Bottom Temperature"),
-        RaeucherofenTempSensor(coordinator, "t_meat", "Meat Temperature"),
-        RaeucherofenTempSensor(coordinator, "t_out", "Outside Temperature"),
-        RaeucherofenTimeSensor(coordinator, "remaining_s", "Time Remaining"),
-        RaeucherofenTimeSensor(coordinator, "smokePhaseRemaining_s", "Smoke Phase Remaining"),
-        RaeucherofenTimeSensor(coordinator, "waterPhaseRemaining_s", "Water Phase Remaining"),
-        RaeucherofenTimeSensor(coordinator, "killLeft_s", "Kill Sequence Timer"),
-        RaeucherofenTextSensor(coordinator, "alarm", "Status Message"),
-        RaeucherofenTextSensor(coordinator, "sensor", "Active Sensor"),
-        RaeucherofenStepSensor(coordinator, "krakauerStep", "Krakauer Step"),
-        RaeucherofenStepSensor(coordinator, "indStep", "Individual Step"),
-        RaeucherofenStepSensor(coordinator, "indTotal", "Individual Total Steps"),
-        RaeucherofenTempSensor(coordinator, "maxTemp", "Max Allowed Temperature"),
+        RaeucherofenTempSensor(coordinator, "t_top", "Temperatur Oben"),
+        RaeucherofenTempSensor(coordinator, "t_mid", "Temperatur Mitte"),
+        RaeucherofenTempSensor(coordinator, "t_bot", "Temperatur Unten"),
+        RaeucherofenTempSensor(coordinator, "t_meat", "Kerntemperatur"),
+        RaeucherofenTempSensor(coordinator, "t_out", "Außentemperatur"),
+        RaeucherofenTimeSensor(coordinator, "remaining_s", "Restzeit"),
+        RaeucherofenTimeSensor(coordinator, "smokePhaseRemaining_s", "Rauchphase Restzeit"),
+        RaeucherofenTimeSensor(coordinator, "waterPhaseRemaining_s", "Wasserphase Restzeit"),
+        RaeucherofenTimeSensor(coordinator, "killLeft_s", "Notabschaltung Timer"),
+        RaeucherofenTextSensor(coordinator, "alarm", "Statusmeldung"),
+        RaeucherofenTextSensor(coordinator, "sensor", "Aktiver Sensor"),
+        RaeucherofenStepSensor(coordinator, "krakauerStep", "Krakauer Schritt"),
+        RaeucherofenStepSensor(coordinator, "indStep", "Individual Schritt"),
+        RaeucherofenStepSensor(coordinator, "indTotal", "Individual Gesamtschritte"),
+        RaeucherofenTempSensor(coordinator, "maxTemp", "Max. zulässige Temperatur"),
     ]
     
     async_add_entities(entities)

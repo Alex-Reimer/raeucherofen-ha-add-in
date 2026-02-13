@@ -35,7 +35,7 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 class RaeucherofenSetTemp(CoordinatorEntity, NumberEntity):
-    _attr_name = "Target Temperature"
+    _attr_name = "Zieltemperatur"
     _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
     _attr_mode = NumberMode.BOX
     _attr_native_min_value = 0
@@ -54,7 +54,7 @@ class RaeucherofenSetTemp(CoordinatorEntity, NumberEntity):
         await self.coordinator.async_send_command("settemp", {"v": value})
 
 class RaeucherofenMeatTarget(CoordinatorEntity, NumberEntity):
-    _attr_name = "Meat Target Temperature"
+    _attr_name = "Ziel-Kerntemperatur"
     _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
     _attr_mode = NumberMode.BOX
     _attr_native_min_value = 0
@@ -73,7 +73,7 @@ class RaeucherofenMeatTarget(CoordinatorEntity, NumberEntity):
         await self.coordinator.async_send_command("meat", {"t": value})
 
 class RaeucherofenDuration(CoordinatorEntity, NumberEntity):
-    _attr_name = "Duration (Minutes)"
+    _attr_name = "Dauer (Minuten)"
     _attr_native_unit_of_measurement = UnitOfTime.MINUTES
     _attr_mode = NumberMode.BOX
     _attr_native_min_value = 1
@@ -92,7 +92,7 @@ class RaeucherofenDuration(CoordinatorEntity, NumberEntity):
         await self.coordinator.async_send_command("duration", {"min": int(value)})
 
 class RaeucherofenSmokeOn(CoordinatorEntity, NumberEntity):
-    _attr_name = "Smoke On Duration"
+    _attr_name = "Rauch An Dauer"
     _attr_native_unit_of_measurement = UnitOfTime.MINUTES
     _attr_native_min_value = 1
     _attr_native_max_value = 600
@@ -109,7 +109,7 @@ class RaeucherofenSmokeOn(CoordinatorEntity, NumberEntity):
         await self.coordinator.async_send_command("smoke", {"on": int(value)})
 
 class RaeucherofenSmokeOff(CoordinatorEntity, NumberEntity):
-    _attr_name = "Smoke Off Duration"
+    _attr_name = "Rauch Aus Dauer"
     _attr_native_unit_of_measurement = UnitOfTime.MINUTES
     _attr_native_min_value = 1
     _attr_native_max_value = 600
@@ -126,7 +126,7 @@ class RaeucherofenSmokeOff(CoordinatorEntity, NumberEntity):
         await self.coordinator.async_send_command("smoke", {"off": int(value)})
 
 class RaeucherofenSteamOn(CoordinatorEntity, NumberEntity):
-    _attr_name = "Steam On Duration"
+    _attr_name = "Dampf An Dauer"
     _attr_native_unit_of_measurement = UnitOfTime.SECONDS
     _attr_native_min_value = 1
     _attr_native_max_value = 600
@@ -143,7 +143,7 @@ class RaeucherofenSteamOn(CoordinatorEntity, NumberEntity):
         await self.coordinator.async_send_command("steam", {"on_s": int(value)})
 
 class RaeucherofenSteamOff(CoordinatorEntity, NumberEntity):
-    _attr_name = "Steam Off Duration"
+    _attr_name = "Dampf Aus Dauer"
     _attr_native_unit_of_measurement = UnitOfTime.MINUTES
     _attr_native_min_value = 1
     _attr_native_max_value = 1440

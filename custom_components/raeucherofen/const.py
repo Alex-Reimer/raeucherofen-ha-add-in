@@ -8,15 +8,15 @@ UPDATE_INTERVAL = 10 # seconds
 
 # Programs Mapping (must match enum in .ino)
 PROGRAM_MAPPING = {
-    0: "None",
-    1: "Dry",
-    2: "Cold",
-    3: "Hot",
-    4: "Cook",
-    5: "Steam",
+    0: "Keines",
+    1: "Trocknen",
+    2: "Kalträuchern",
+    3: "Heißräuchern",
+    4: "Kochen",
+    5: "Dämpfen",
     6: "Krakauer",
-    7: "Individual",
-    8: "Cooldown"
+    7: "Individuell",
+    8: "Abkühlen"
 }
 
 REVERSE_PROGRAM_MAPPING = {v: k for k, v in PROGRAM_MAPPING.items()}

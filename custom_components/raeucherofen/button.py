@@ -19,9 +19,9 @@ async def async_setup_entry(
     coordinator = hass.data[DOMAIN][entry.entry_id]
     
     async_add_entities([
-        RaeucherofenButton(coordinator, "Start Program", "running", {"r": 1}),
-        RaeucherofenButton(coordinator, "Stop Program", "running", {"r": 0}),
-        RaeucherofenButton(coordinator, "Full Power Off", "poweroff", {}),
+        RaeucherofenButton(coordinator, "Programm Starten", "running", {"r": 1}),
+        RaeucherofenButton(coordinator, "Programm Stoppen", "running", {"r": 0}),
+        RaeucherofenButton(coordinator, "Komplett Ausschalten", "poweroff", {}),
     ])
 
 class RaeucherofenButton(CoordinatorEntity, ButtonEntity):
